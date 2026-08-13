@@ -6,6 +6,11 @@ Real-time 7-domain deep system scanning, autonomous autopilot, and forensic resp
 import os
 import sys
 import sqlite3
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
 import uvicorn
 import hashlib
 import time
