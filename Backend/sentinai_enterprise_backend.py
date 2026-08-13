@@ -142,8 +142,7 @@ init_db()
 # ==================== NEURAL ENGINES ====================
 
 groq_llm = LLM(
-    model="openai/llama-3.3-70b-versatile",
-    base_url="https://api.groq.com/openai/v1",
+    model="groq/llama-3.3-70b-versatile",
     api_key=MASTER_AI_KEY,
     temperature=0.0,
 )
