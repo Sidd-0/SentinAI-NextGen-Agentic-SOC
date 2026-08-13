@@ -626,7 +626,7 @@ async def execute_sovereign_mission(
     user_email: Optional[str] = None,
     force_ollama: bool = False,
 ) -> Dict[str, Any]:
-    use_ollama = force_ollama or "Autonomous" in (domain or "")
+    use_ollama = (force_ollama or "Autonomous" in (domain or "")) and _port_listening("127.0.0.1", OLLAMA_PORT)
     active_llm = ollama_llm if use_ollama else groq_llm
     engine_name = "OLLAMA (llama3.2)" if use_ollama else "GROQ"
     tactics = DOMAIN_TACTICS.get(domain, "General Security Protocols.")
