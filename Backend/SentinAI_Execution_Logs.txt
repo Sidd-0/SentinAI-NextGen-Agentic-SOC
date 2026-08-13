@@ -1,0 +1,98 @@
+SENTINAI v3.0: NEURAL EXECUTION & COMMAND LOGS
+DATE: 2026-05-28 | CLASSIFICATION: CONFIDENTIAL
+--------------------------------------------------
+[SYSTEM INITIALIZED]
+[BACKEND CONNECTED ON PORT 8000]
+--------------------------------------------------
+
+PS K:\cyber ai_project(main) projects> python sentinai_enterprise_backend.py
+INFO:     Started server process [13368]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:51716 - "OPTIONS /api/signup HTTP/1.1" 200 OK
+✅ NEW OPERATOR DEPLOYED: priyanshdwd@gmail.com
+INFO:     127.0.0.1:51716 - "POST /api/signup HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59137 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65058 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65058 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65058 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65058 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65058 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65058 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65058 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65058 - "OPTIONS /api/analyze HTTP/1.1" 200 OK
+🕵️ DETECTING: Threat in Endpoint Protection. Engaging Neural Core...
+⚔️ MISSION COMPLETE: Ransomware - LockBit 3.0 (BlackMatter lineage) — encryption + exfiltration double extortion. Neutralized Successfully.
+INFO:     127.0.0.1:65058 - "POST /api/analyze HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65058 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54875 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57968 - "GET /api/telemetry HTTP/1.1" 200 OK
+
+--------------------------------------------------
+VERDICT: ALL THREATS NEUTRALIZED SUCCESSFULLY.
