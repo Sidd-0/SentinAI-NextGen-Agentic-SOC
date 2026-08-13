@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: sentinai_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - SENDER_EMAIL=${SENDER_EMAIL}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - SENTINAI_PORT=8000
+    restart: always
+    volumes:
+      - ./Backend/forensic_vault:/app/forensic_vault
+      - ./Backend/sentinai_enterprise.db:/app/sentinai_enterprise.db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_BACKEND_URL=${VITE_BACKEND_URL:-http://localhost:8000}
+    container_name: sentinai_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always

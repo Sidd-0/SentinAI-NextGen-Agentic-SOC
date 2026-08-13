@@ -3,7 +3,7 @@
 
 export const AUTH_KEY = "sentinai_auth_v2";
 export const OPERATOR_KEY = "sentinai_operator_v2";
-export const BACKEND_URL = "http://127.0.0.1:8000";
+export const BACKEND_URL = (typeof import.meta !== "undefined" && import.meta.env?.VITE_BACKEND_URL) || "http://127.0.0.1:8000";
 
 export function setOperator(op: { name: string; email: string }) {
   try { window.localStorage.setItem(OPERATOR_KEY, JSON.stringify(op)); } catch {}

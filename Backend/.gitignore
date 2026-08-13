@@ -1,0 +1,9 @@
+.env
+*.env
+__pycache__/
+*.pyc
+.venv/
+sentinai_enterprise.db
+sentinai_users.db
+sentinai_core.db
+forensic_vault/

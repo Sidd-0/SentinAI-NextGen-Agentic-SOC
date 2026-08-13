@@ -9,7 +9,7 @@ import {
 import { CyberBackground } from "@/components/CyberBackground";
 import { StatusBadge } from "@/components/StatusBadge";
 import {
-  DOMAINS as INITIAL_DOMAINS, PLAYBOOKS, isAuthenticated, signOut, getOperator, type AgentState, type DomainStatus,
+  DOMAINS as INITIAL_DOMAINS, PLAYBOOKS, isAuthenticated, signOut, getOperator, BACKEND_URL, type AgentState, type DomainStatus,
 } from "@/lib/sentinai-store";
 
 import { generateIncidentReport } from "@/lib/generate-report";
@@ -28,7 +28,6 @@ const DOMAIN_ICONS: Record<string, any> = {
   it: Server, cloud: Cloud, network: Network, appsec: Globe, endpoint: Cpu, iam: KeyRound, api: Radio,
 };
 
-const BACKEND_URL = "http://127.0.0.1:8000";
 const PULSE_INTERVAL_MS = 5000;
 
 interface CombatLogEntry {

@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: sentinai-backend
+    env: python
+    region: singapore
+    buildCommand: cd Backend && pip install -r requirements.txt
+    startCommand: cd Backend && uvicorn sentinai_enterprise_backend:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: SENDER_EMAIL
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+
+  - type: web
+    name: sentinai-frontend
+    env: static
+    region: singapore
+    buildCommand: cd frontend && npm install --legacy-peer-deps && npm run build
+    staticPublishPath: ./frontend/dist
+    envVars:
+      - key: VITE_BACKEND_URL
+        fromService:
+          type: web
+          name: sentinai-backend
+          property: host

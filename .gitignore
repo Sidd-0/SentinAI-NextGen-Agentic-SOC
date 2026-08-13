@@ -1,0 +1,23 @@
+# Ignore environment secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Node
+node_modules/
+dist/
+.output/
+
+# System / IDE
+.DS_Store
+.vscode/
+.idea/
