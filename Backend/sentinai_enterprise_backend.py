@@ -30,6 +30,7 @@ from fastapi import FastAPI, HTTPException, Request, BackgroundTasks
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from crewai import Agent, Task, Crew, Process, LLM
+from langchain_groq import ChatGroq
 from docx import Document
 from dotenv import load_dotenv
 from contextlib import asynccontextmanager
@@ -90,8 +91,8 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="SentinAI Sovereign Elite v10.7",
-    docs_url=None,
-    redoc_url=None,
+    docs_url="/docs",
+    redoc_url="/redoc",
     lifespan=lifespan,
 )
 
@@ -103,35 +104,63 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+@app.get("/")
+def read_root():
+    return {
+        "status": "online",
+        "service": "SentinAI Enterprise Agentic SOC API",
+        "version": "10.7",
+        "docs": "/docs",
+    }
+
+
 # ==================== DATABASE ====================
 
 
 def init_db():
     conn = sqlite3.connect(DB_FILE)
-    cursor = conn.cursor()
-    cursor.execute(
+    c = conn.cursor()
+    c.execute(
         """CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT,
+            id TEXT PRIMARY KEY,
             email TEXT UNIQUE,
-            password_hash TEXT,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            last_login TIMESTAMP)"""
+            password TEXT,
+            otp TEXT,
+            verified INTEGER,
+            reset_token TEXT,
+            reset_token_exp INTEGER
+        )"""
     )
-    cursor.execute(
-        """CREATE TABLE IF NOT EXISTS reset_tokens (
-            token TEXT PRIMARY KEY,
-            email TEXT,
-            created_at REAL)"""
-    )
-    cursor.execute(
-        """CREATE TABLE IF NOT EXISTS security_logs (
+    c.execute(
+        """CREATE TABLE IF NOT EXISTS scan_logs (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
+            timestamp TEXT,
             domain TEXT,
-            severity TEXT,
-            message TEXT,
-            metric_snapshot TEXT,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)"""
+            status TEXT,
+            metric TEXT,
+            remediation TEXT
+        )"""
+    )
+    c.execute(
+        """CREATE TABLE IF NOT EXISTS audit_trail (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            timestamp TEXT,
+            action TEXT,
+            performed_by TEXT,
+            details TEXT
+        )"""
+    )
+    c.execute(
+        """CREATE TABLE IF NOT EXISTS sovereign_commands (
+            id TEXT PRIMARY KEY,
+            timestamp TEXT,
+            user_email TEXT,
+            command TEXT,
+            plan JSON,
+            status TEXT,
+            output TEXT
+        )"""
     )
     conn.commit()
     conn.close()
@@ -141,9 +170,9 @@ init_db()
 
 # ==================== NEURAL ENGINES ====================
 
-groq_llm = LLM(
-    model="groq/llama-3.3-70b-versatile",
-    api_key=MASTER_AI_KEY,
+groq_llm = ChatGroq(
+    model="llama-3.3-70b-versatile",
+    groq_api_key=MASTER_AI_KEY,
     temperature=0.0,
 )
 
