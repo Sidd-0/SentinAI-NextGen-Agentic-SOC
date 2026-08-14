@@ -5,6 +5,22 @@ echo "========================================================="
 echo "   🚀 SENTINAI ENTERPRISE SOC - AUTOMATED DEPLOYMENT     "
 echo "========================================================="
 
+ENV_FILE="/etc/sentinai.env"
+
+# 0. Setup Permanent Environment Secret File (/etc/sentinai.env)
+if [ ! -f "${ENV_FILE}" ]; then
+    echo "[0/6] Creating permanent secret file at ${ENV_FILE}..."
+    KEY_TO_SAVE="${GROQ_API_KEY:-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}"
+    cat <<EOF > "${ENV_FILE}"
+GROQ_API_KEY=${KEY_TO_SAVE}
+PYTHONUNBUFFERED=1
+EOF
+    chmod 600 "${ENV_FILE}"
+    echo "Saved permanent secret key in ${ENV_FILE} (permissions 600)."
+else
+    echo "[0/6] Using existing secret configuration at ${ENV_FILE}."
+fi
+
 # 1. Update system packages & install dependencies
 echo "[1/6] Installing Linux packages (Python, Node.js, Nginx, Git)..."
 apt-get update -y
@@ -100,8 +116,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=${DEPLOY_DIR}/Backend
-Environment="GROQ_API_KEY=${GROQ_API_KEY}"
-Environment="PYTHONUNBUFFERED=1"
+EnvironmentFile=${ENV_FILE}
 ExecStart=${DEPLOY_DIR}/Backend/venv/bin/python -m uvicorn sentinai_enterprise_backend:app --host 127.0.0.1 --port 8000
 Restart=always
 RestartSec=3
