@@ -10,7 +10,10 @@ ENV_FILE="/etc/sentinai.env"
 # 0. Setup Permanent Environment Secret File (/etc/sentinai.env)
 if [ ! -f "${ENV_FILE}" ]; then
     echo "[0/6] Creating permanent secret file at ${ENV_FILE}..."
-    KEY_TO_SAVE="${GROQ_API_KEY:-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}"
+    KEY_TO_SAVE="${GROQ_API_KEY}"
+    if [ -z "${KEY_TO_SAVE}" ]; then
+        read -p "Enter your Groq API Key (GROQ_API_KEY): " KEY_TO_SAVE
+    fi
     cat <<EOF > "${ENV_FILE}"
 GROQ_API_KEY=${KEY_TO_SAVE}
 PYTHONUNBUFFERED=1
@@ -21,10 +24,12 @@ else
     echo "[0/6] Using existing secret configuration at ${ENV_FILE}."
 fi
 
-# 1. Update system packages & install dependencies
-echo "[1/6] Installing Linux packages (Python, Node.js, Nginx, Git)..."
+# 1. Update system packages & install dependencies (Node 22 LTS)
+echo "[1/6] Installing Linux packages & Node.js 22 LTS..."
 apt-get update -y
-apt-get install -y git python3 python3-pip python3-venv nodejs npm nginx curl ufw
+apt-get install -y git python3 python3-pip python3-venv curl ufw
+curl -fsSL https://deb.nodesource.com/setup_22.x | bash -
+apt-get install -y nodejs nginx
 
 # 2. Configure Firewall (Open Ports 80, 443, 22)
 echo "[2/6] Configuring Firewall rules (Ports 22, 80, 443)..."
