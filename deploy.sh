@@ -43,10 +43,10 @@ ufw --force enable || true
 DEPLOY_DIR="/opt/sentinai"
 echo "[3/6] Setting up project repository in ${DEPLOY_DIR}..."
 if [ -d "${DEPLOY_DIR}" ]; then
-    echo "Updating existing installation..."
+    echo "Updating existing installation to latest git commit..."
     cd "${DEPLOY_DIR}"
-    git reset --hard HEAD
-    git pull origin main
+    git fetch origin main
+    git reset --hard origin/main
 else
     git clone https://github.com/Sidd-0/SentinAI-NextGen-Agentic-SOC.git "${DEPLOY_DIR}"
     cd "${DEPLOY_DIR}"
